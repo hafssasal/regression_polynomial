@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agri AI 🌱</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="box">
+    <h1>🌱 Smart Agriculture</h1>
+    
+    <form method="post">
+        <input type="number" name="engrais" placeholder="Entrer engrais" required>
+        <button type="submit">Prédire</button>
+    </form>
+
+    {% if result %}
+        <p class="result">{{ result }}</p>
+    {% endif %}
+</div>
+
+</body>
+</html>
