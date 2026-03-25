@@ -6,12 +6,14 @@ app = Flask(__name__)
 @app.route("/", methods=["GET","POST"])
 def index():
     result = None
+    engrais_value = ""
     
     if request.method == "POST":
-        x = float(request.form["engrais"])
+        engrais_value = request.form["engrais"]
+        x = float(engrais_value)
         y = predict_production(x)
         result = f"🌾 Production estimée : {y} tonnes"
     
-    return render_template("index.html", result=result)
+    return render_template("index.html", result=result, engrais_value=engrais_value)
 
 app.run(debug=True)
